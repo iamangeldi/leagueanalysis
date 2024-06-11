@@ -40,12 +40,12 @@ For the sake of this project we will only use the most important columns that ar
 | `xpat15`            | Experience points gained by the player at 15 minutes into the game.                                                |
 
 ## Univariate Analysis of Damage Share
-<iframe src="assets/damageshare_histogram.html" width=800 height=500></iframe>
+<iframe src="assets/damageshare_histogram.html" width=800 height=550></iframe>
 
 The histogram depicts the distribution of damageshare among players in a League of Legends dataset, showing how much each player contributes to their team's total damage dealt to champions. Most players fall within the 10% to 30% range, indicating a common spread where individual contributions are significant but balanced. The sharp decline beyond 30% suggests fewer players are heavily skewed towards dominating their team's damage output, likely highlighting roles such as ADCs or mid-laners who are primary damage dealers. This distribution reflects typical team dynamics where damage is moderately shared among key roles, ensuring versatility and resilience in gameplay.
 
 ## Bivariate Analysis between position and damage share
-<iframe src="assets/damageshare_positions_histogram.html" width=800 height=500></iframe>
+<iframe src="assets/damageshare_positions_histogram.html" width=800 height=550></iframe>
 
 This box plot illustrates the damageshare distribution across different positions in League of Legends: top, jungle (jng), mid, bot, and support (sup). The mid and bot positions show higher median damageshare, around 0.25, indicating they often contribute significantly to the team's total damage. The jungle position typically has a lower median damageshare near 0.15, reflecting their broader role in map control and objective play rather than direct damage dealing. Supports have the lowest median damageshare and a narrower range, focusing more on utility and protection than damage output. The top lane position displays a moderate damageshare, with a median around 0.20, highlighting a balanced role between damage and tanking or split-pushing. This plot underscores the distinct roles and expected damage contributions of each position within a team.
 
@@ -62,5 +62,10 @@ In order to get a full understanding of the data we are given lets work with a f
 
 
 # Assessment of Missingness
+In this step, we're investigating the missing values in the `xpdiffat15` column of our League of Legends dataset. The idea is to determine if the missingness is systematically related to other gameplay metrics, which could suggest that the missing data is not random (potentially Missing Not at Random, or MNAR). We create a new column xpdiffat15_missing to flag the missing values. Then, we perform permutation tests on various columns (kills, deaths, assists, and totalgold) to see if there's a significant difference in their means between games with and without missing xpdiffat15. This involves shuffling the data and comparing the observed differences with these random permutations to compute p-values, helping us understand if the observed differences are statistically significant or likely due to chance.
+## Permutation test with 'xpdiffat15' and 'kills' columns
+***Null Hypothesis (H0):*** The missingness of xpdiffat15 is independent of the kills column. In other words, any observed difference in means between the missing and non-missing groups for xpdiffat15 is due to random chance.
+
+***Alternative Hypothesis (H1):*** The missingness of xpdiffat15 is dependent on the kills column. This means that the observed difference in means between the missing and non-missing groups for xpdiffat15 is not due to random chance and indicates a significant relationship between the two variables.
 
 
