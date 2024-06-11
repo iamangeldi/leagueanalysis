@@ -14,30 +14,29 @@ These columns help us measure and compare the performance and impact of ADCs and
 # Data Cleaning and Exploratory Data Analysis
 For the sake of this project we will only use the most important columns that are relevant to our research, these are:
 
-| Column Name           | Description                                                                                                                               |
-|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| `gameid`              | Unique identifier for each game.                                                                                                          |
-| `datacompleteness`    | Indicator of whether the data for the game is complete.                                                                                   |
-| `position`            | Player's position in the game (e.g., bot, mid, top, jungle, support).                                                                     |
-| `result`              | Outcome of the game for the player (win or loss).                                                                                         |
-| `kills`               | Number of kills by the player during the game.                                                                                            |
-| `deaths`              | Number of times the player died during the game.                                                                                          |
-| `assists`             | Number of assists by the player during the game.                                                                                          |
-| `damagetochampions`   | Total damage dealt by the player to enemy champions.                                                                                      |
-| `dpm`                 | Damage per minute, indicating how much damage the player deals on average per minute.                                                     |
-| `visionscore`         | A score indicating the player's contribution to vision control through wards and vision denial.                                           |
-| `golddiffat15`        | Gold difference at 15 minutes compared to the opposing player in the same position.                                                       |
-| `csdiffat15`          | Creep score (minion kills) difference at 15 minutes compared to the opposing player in the same position.                                 |
-| `killsat15`           | Number of kills by the player at 15 minutes into the game.                                                                                |
-| `xpdiffat15`          | Experience difference at 15 minutes compared to the opposing player in the same position.                                                 |
-| `firstblood`          | Indicator if the player or their team got the first kill of the game.                                                                     |
-| `damageshare`         | Percentage of the team's total damage dealt to champions contributed by the player.                                                       |
-| `killsat15`           | Number of kills by the player at 15 minutes into the game. (Repeated to indicate importance in different contexts)                        |
-| `assistsat15`         | Number of assists by the player at 15 minutes into the game.                                                                              |
-| `deathsat15`          | Number of deaths by the player at 15 minutes into the game.                                                                               |
-| `csat15`              | Creep score (minion kills) by the player at 15 minutes into the game.                                                                     |
-| `xpat15`              | Experience points gained by the player at 15 minutes into the game.                                                                       |
-
+| Column Name         | Description                                                                                                         |
+|---------------------|---------------------------------------------------------------------------------------------------------------------|
+| `gameid`            | Unique identifier for each game.                                                                                   |
+| `datacompleteness`  | Indicator of whether the data for the game is complete.                                                            |
+| `position`          | Player's position in the game (e.g., bot, mid, top, jungle, support).                                              |
+| `result`            | Outcome of the game for the player (win or loss).                                                                  |
+| `kills`             | Number of kills by the player during the game.                                                                     |
+| `deaths`            | Number of times the player died during the game.                                                                   |
+| `assists`           | Number of assists by the player during the game.                                                                   |
+| `damagetochampions` | Total damage dealt by the player to enemy champions.                                                               |
+| `dpm`               | Damage per minute, indicating how much damage the player deals on average per minute.                              |
+| `visionscore`       | A score indicating the player's contribution to vision control through wards and vision denial.                    |
+| `golddiffat15`      | Gold difference at 15 minutes compared to the opposing player in the same position.                                |
+| `csdiffat15`        | Creep score (minion kills) difference at 15 minutes compared to the opposing player in the same position.          |
+| `killsat15`         | Number of kills by the player at 15 minutes into the game.                                                         |
+| `xpdiffat15`        | Experience difference at 15 minutes compared to the opposing player in the same position.                          |
+| `firstblood`        | Indicator if the player or their team got the first kill of the game.                                              |
+| `damageshare`       | Percentage of the team's total damage dealt to champions contributed by the player.                                |
+| `killsat15`         | Number of kills by the player at 15 minutes into the game. (Repeated to indicate importance in different contexts) |
+| `assistsat15`       | Number of assists by the player at 15 minutes into the game.                                                       |
+| `deathsat15`        | Number of deaths by the player at 15 minutes into the game.                                                        |
+| `csat15`            | Creep score (minion kills) by the player at 15 minutes into the game.                                              |
+| `xpat15`            | Experience points gained by the player at 15 minutes into the game.                                                |
 ## Univariate Analysis of Damage Share
 <iframe src="assets/damageshare_histogram.html" width="700" height="500"></iframe>
 
