@@ -39,3 +39,7 @@ For the sake of this project we will only use the most important columns that ar
 
 ## Univariate Analysis of Damage Share
 <iframe src="assets/damageshare_histogram.html" width="800" height="600"></iframe>
+The histogram depicts the distribution of damageshare among players in a League of Legends dataset, showing how much each player contributes to their team's total damage dealt to champions. Most players fall within the 10% to 30% range, indicating a common spread where individual contributions are significant but balanced. The sharp decline beyond 30% suggests fewer players are heavily skewed towards dominating their team's damage output, likely highlighting roles such as ADCs or mid-laners who are primary damage dealers. This distribution reflects typical team dynamics where damage is moderately shared among key roles, ensuring versatility and resilience in gameplay.
+
+## Bivariate Analysis between position and damage share
+
