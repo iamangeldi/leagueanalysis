@@ -38,3 +38,9 @@ For the sake of this project we will only use the most important columns that ar
 | `xpat15`              | Experience points gained by the player at 15 minutes into the game.                                                                       |
 
 ## Univariate Analysis of Damage Share
+<iframe
+  src="assets/damageshare_histogram.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
