@@ -63,11 +63,19 @@ In order to get a full understanding of the data we are given lets work with a f
 
 # Assessment of Missingness
 In this step, we're investigating the missing values in the `xpdiffat15` column of our League of Legends dataset. The idea is to determine if the missingness is systematically related to other gameplay metrics, which could suggest that the missing data is not random (potentially Missing Not at Random, or MNAR). We create a new column xpdiffat15_missing to flag the missing values. Then, we perform permutation tests on various columns (kills, deaths, assists, and totalgold) to see if there's a significant difference in their means between games with and without missing xpdiffat15. This involves shuffling the data and comparing the observed differences with these random permutations to compute p-values, helping us understand if the observed differences are statistically significant or likely due to chance.
+
 ## Permutation test with 'xpdiffat15' and 'kills' columns
 ***Null Hypothesis (H0):*** The missingness of xpdiffat15 is independent of the kills column. In other words, any observed difference in means between the missing and non-missing groups for xpdiffat15 is due to random chance.
 
 ***Alternative Hypothesis (H1):*** The missingness of xpdiffat15 is dependent on the kills column. This means that the observed difference in means between the missing and non-missing groups for xpdiffat15 is not due to random chance and indicates a significant relationship between the two variables.
 
 ![Permutation Test for Kills](assets/permutation_kills.png)
+
+The histogram represents the distribution of the difference in means obtained from the permutation tests, illustrating the null hypothesis that there's no relationship between the missingness of xpdiffat15 and kills. The red dashed line indicates the actual observed difference in means, and its position outside the bulk of the distribution suggests a significant dependency between these variables. This implies that the observed difference is unlikely to have occurred by chance, confirming a significant relationship.
+
+## Permutation test with 'xpdiffat15' and 'totalgold' columns
+***Null Hypothesis (H0):*** The missingness of xpdiffat15 is independent of the totalgold column. Any observed difference in means between the missing and non-missing groups for xpdiffat15 is due to random chance.
+
+***Alternative Hypothesis (H1):*** The missingness of xpdiffat15 is dependent on the totalgold column. The observed difference in means between the missing and non-missing groups for xpdiffat15 is not due to random chance and indicates a significant relationship.
 
 
