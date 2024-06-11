@@ -37,13 +37,15 @@ For the sake of this project we will only use the most important columns that ar
 | `deathsat15`        | Number of deaths by the player at 15 minutes into the game.                                                        |
 | `csat15`            | Creep score (minion kills) by the player at 15 minutes into the game.                                              |
 | `xpat15`            | Experience points gained by the player at 15 minutes into the game.                                                |
+
+
 ## Univariate Analysis of Damage Share
-<iframe src="assets/damageshare_histogram.html" width=400 height=300></iframe>
+<iframe src="assets/damageshare_histogram.html" width=800 height=400></iframe>
 
 The histogram depicts the distribution of damageshare among players in a League of Legends dataset, showing how much each player contributes to their team's total damage dealt to champions. Most players fall within the 10% to 30% range, indicating a common spread where individual contributions are significant but balanced. The sharp decline beyond 30% suggests fewer players are heavily skewed towards dominating their team's damage output, likely highlighting roles such as ADCs or mid-laners who are primary damage dealers. This distribution reflects typical team dynamics where damage is moderately shared among key roles, ensuring versatility and resilience in gameplay.
 
 ## Bivariate Analysis between position and damage share
-<iframe src="assets/damageshare_positions_histogram.html" width=400 height=300></iframe>
+<iframe src="assets/damageshare_positions_histogram.html" width=800 height=400></iframe>
 
 This box plot illustrates the damageshare distribution across different positions in League of Legends: top, jungle (jng), mid, bot, and support (sup). The mid and bot positions show higher median damageshare, around 0.25, indicating they often contribute significantly to the team's total damage. The jungle position typically has a lower median damageshare near 0.15, reflecting their broader role in map control and objective play rather than direct damage dealing. Supports have the lowest median damageshare and a narrower range, focusing more on utility and protection than damage output. The top lane position displays a moderate damageshare, with a median around 0.20, highlighting a balanced role between damage and tanking or split-pushing. This plot underscores the distinct roles and expected damage contributions of each position within a team.
 
