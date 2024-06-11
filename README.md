@@ -68,4 +68,6 @@ In this step, we're investigating the missing values in the `xpdiffat15` column 
 
 ***Alternative Hypothesis (H1):*** The missingness of xpdiffat15 is dependent on the kills column. This means that the observed difference in means between the missing and non-missing groups for xpdiffat15 is not due to random chance and indicates a significant relationship between the two variables.
 
+![Permutation Test for Kills](assets/permutation_kills.png)
+
 
