@@ -49,5 +49,8 @@ This box plot illustrates the damageshare distribution across different position
 
 ## Instresting aggregates and pivots
 In order to get a full understanding of the data we are given lets work with a few pivots, this will help us get a better understanding of the game, and might lead us to future projects.
+<iframe src="assets/pivot_all_roles.html" width="800" height="600"></iframe>
+
+# Assessment of Missingness
 
 
