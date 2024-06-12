@@ -214,8 +214,11 @@ A Random Forest Classifier is an ensemble learning method for classification tha
 
 **Evaluation Results**
 Accuracy: 0.6383467278989667
+
 Precision: 0.659270998415214
+
 Recall: 0.6176688938381588
+
 F1 Score: 0.6377922575699502
 
 # Fairness Analysis
