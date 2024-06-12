@@ -82,5 +82,13 @@ The histogram represents the distribution of the difference in means obtained fr
 The histogram represents the distribution of the difference in means obtained from the permutation tests, illustrating the null hypothesis that there's no relationship between the missingness of xpdiffat15 and totalgold. The red dashed line indicates the actual observed difference in means, and its position outside the bulk of the distribution suggests a significant dependency between these variables. This implies that the observed difference is unlikely to have occurred by chance, confirming a significant relationship.
 
 # Hypothesis Testing
+**Null Hypothesis (H0)**: There is no difference in mean damageshare between ADCs and Mid Laners.
 
+**Alternative Hypothesis (H1)**: There is a difference in mean damageshare between ADCs and Mid Laners.
+
+The hypothesis test was conducted to determine if there is a significant difference in mean damageshare between ADCs and Mid Laners in high-stakes matches. The observed difference in mean damageshare was approximately -0.0026. The p-value obtained from the permutation test was 0.0153.
+![Permutation Test](assets/permutation_test.png)
+Since the p-value is less than the significance level of 0.05, we reject the null hypothesis. This indicates that there is a statistically significant difference in mean damageshare between ADCs and Mid Laners in high-stakes matches.
+
+In simpler terms, our analysis shows that the average damageshare contribution by ADCs and Mid Laners is not the same in mathches, with a noticeable, albeit small, difference between the two roles.
 
