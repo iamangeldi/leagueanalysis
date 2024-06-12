@@ -77,18 +77,140 @@ The histogram represents the distribution of the difference in means obtained fr
 ***Null Hypothesis (H0):*** The missingness of xpdiffat15 is independent of the totalgold column. Any observed difference in means between the missing and non-missing groups for xpdiffat15 is due to random chance.
 
 ***Alternative Hypothesis (H1):*** The missingness of xpdiffat15 is dependent on the totalgold column. The observed difference in means between the missing and non-missing groups for xpdiffat15 is not due to random chance and indicates a significant relationship.
+
 ![Permutation Test for Kills](assets/permutation_total_gold.png)
 
 The histogram represents the distribution of the difference in means obtained from the permutation tests, illustrating the null hypothesis that there's no relationship between the missingness of xpdiffat15 and totalgold. The red dashed line indicates the actual observed difference in means, and its position outside the bulk of the distribution suggests a significant dependency between these variables. This implies that the observed difference is unlikely to have occurred by chance, confirming a significant relationship.
 
 # Hypothesis Testing
+Hypothesis testing is crucial in a project because it provides a structured method to make decisions based on data, rather than intuition or assumption. It allows us to test the validity of a claim or theory using sample data and statistical methods, thereby quantifying the probability that the observed effects are due to chance. This process helps ensure that project decisions and conclusions are evidence-based and statistically valid, reducing the risk of erroneous conclusions that could lead to ineffective or costly actions.
+
+
 **Null Hypothesis (H0)**: There is no difference in mean damageshare between ADCs and Mid Laners.
 
 **Alternative Hypothesis (H1)**: There is a difference in mean damageshare between ADCs and Mid Laners.
 
-The hypothesis test was conducted to determine if there is a significant difference in mean damageshare between ADCs and Mid Laners in high-stakes matches. The observed difference in mean damageshare was approximately -0.0026. The p-value obtained from the permutation test was 0.0153.
 ![Permutation Test](assets/permutation_test.png)
-Since the p-value is less than the significance level of 0.05, we reject the null hypothesis. This indicates that there is a statistically significant difference in mean damageshare between ADCs and Mid Laners in high-stakes matches.
+
+The hypothesis test was conducted to determine if there is a significant difference in mean damageshare between ADCs and Mid Laners in high-stakes matches. The **observed difference** in mean damageshare was approximately **-0.0026**. The **p-value** obtained from the permutation test was **0.0153**.
+Since the p-value is less than the **significance level of 0.05**, we **reject the null hypothesis**. This indicates that there is a statistically significant difference in mean damageshare between ADCs and Mid Laners in high-stakes matches.
 
 In simpler terms, our analysis shows that the average damageshare contribution by ADCs and Mid Laners is not the same in mathches, with a noticeable, albeit small, difference between the two roles.
+
+**Null Hypothesis (H0)**: There is no difference in the mean performance metrics (such as damageshare, kills, assists) between ADCs/Mid Laners and all other roles.
+
+**Alternative Hypothesis (H1)**: There is a difference in the mean performance metrics between ADCs/Mid Laners and all other roles.
+
+| Metric      | t-Statistic | p-Value  | Decision   |
+|-------------|-------------|----------|------------|
+| Damageshare | 166.75      | 3.00e-04 | Reject H0  |
+| Kills       | 72.92       | 6.86e-04 | Reject H0  |
+| Assists     | -37.27      | 1.34e-03 | Reject H0  |
+
+For each of the performance metrics (damageshare, kills, assists), the p-values are significantly lower than the commonly used significance level of 0.05. This leads us to **reject the null hypothesis for all three metrics**.
+
+This means there is strong statistical evidence to support the alternative hypothesis that the mean performance metrics (damageshare, kills, assists) between ADCs/Mid Laners and all other roles are significantly different.
+
+# Framing a Prediction problem
+The goal of this project is to build a classification model to predict the outcome of a League of Legends (LoL) game based on key metrics collected during the first 15 minutes of gameplay. Specifically, we will focus on the core positions of ADC (bot lane) and Midlane (mid), as their performance is often crucial to the overall success of the team. For the purpose of this model we will only work with complete data.
+
+**Key Metrics:**
+The key metrics for ADC (bot) and Midlane (mid) positions that will be used in our classification model are:
+
+ * Experience Points (XP): Total experience points accumulated.
+ * Kills: Number of enemy champions killed.
+ * Deaths: Number of times the player died.
+ * Assists: Number of assists made by the player.
+ * Total Gold: Total gold accumulated.
+ * Target Variable:
+
+
+**The target variable for our classification model will be the game outcome, which can be binary:**
+
+ * Win: The team wins the game.
+ * Loss: The team loses the game.
+
+
+**Data Preprocessing:**
+ * Feature Selection: Extracting relevant features for ADC and Midlane positions.
+ * Feature Engineering: Creating new features that may enhance model performance.
+ * Normalization: Scaling the features to a standard range to ensure model convergence and stability.
+
+**Decision Tree Classifier**
+
+A Decision Tree Classifier is a versatile and widely-used machine learning algorithm for classification tasks. It works by splitting the data into subsets based on the value of input features. Each internal node of the tree represents a "decision" based on one of the input features, and each leaf node represents a classification label (in this case, win or loss).
+
+# Baseline model
+**Step 1: Feature Selection**
+
+Goal: Extract relevant features for ADC and Midlane positions, these features for our purposes will be bot_exp_15, bot_kills_15, bot_death_15, bot_assists_15, mid_exp_15, mid_kills_15, mid_death_15, mid_assists_15
+
+**Step 2: Normalization**
+
+Goal: Scale the features to ensure that they are on a comparable scale, which can help in model convergence and stability. Instead of using sklearn library we will build our own standartizer.
+
+**Step 3: Model Training**
+
+Goal: Train a decision tree classifier using the selected and normalized features.
+
+*Step 3.1: Train-Test Split*
+
+ * Split the dataset into training and testing sets. Typically, a 70-30 or 80-20 split is used.
+ * The training set is used to train the model, while the testing set is used to evaluate its performance.
+
+*Step 3.2: Training the Decision Tree Classifier*
+
+ * Use the training set to fit the decision tree classifier. The algorithm will create a tree structure by splitting the data at various points based on the input features to minimize classification error.
+
+**Step 4: Evaluating the model**
+
+Goal: evaluate the accuracy and other evaluation metrics on the model to determine validity of the model.
+
+**Evaluation Results**
+Accuracy: 0.5365480290853425
+Precision: 0.55320813771518
+Recall: 0.5248700816629547
+F1 Score: 0.5386666666666666
+
+### Coclusion for baseline Model
+The current model for predicting League of Legends game outcomes has an accuracy of 53.65%, meaning it is only slightly better than guessing. This suggests there is room for improvement. To make the model better, we can create new features, adjust the model settings, and try advanced methods. Additionally, balancing the dataset and increasing its size can help. These steps should improve the model's accuracy and reliability.
+
+The baseline model for predicting the outcome of a League of Legends (LoL) game based on early-game performance metrics has demonstrated foundational success, yet there is ample room for enhancement. The use of a Decision Tree Classifier has yielded modest predictive accuracy and other performance metrics, highlighting the necessity for a more robust approach in our final model.
+
+# Final Model
+For the final model, transitioning to a Random Trees classifier will likely yield improvements due to its capacity to handle overfitting better than a single decision tree, thereby enhancing generalization to unseen data. Furthermore, the incorporation of GridSearch will be pivotal. This technique will allow us to systematically work through multiple combinations of parameter tunes, determine which tune gives the best performance and thus optimize our model for accuracy and reliability.
+
+Additionally, the baseline model will be expanded to include four more features, which should enhance the model's ability to capture the complexity and nuances of game dynamics. These additional features will be carefully selected to ensure they are predictive of game outcomes, possibly focusing on metrics such as objective control (like dragons and turrets), vision scores, or player efficiency ratings, which could provide deeper insights into game progress and team performance dynamics.
+
+**Random Forest Classifier**
+A Random Forest Classifier is an ensemble learning method for classification that operates by constructing a multitude of decision trees at training time. For classification tasks, the output of the random forest is the class selected by most trees. This method is effective due to its ability to limit overfitting without substantially increasing error due to bias.
+
+## Final Model Steps
+
+**Step 1: Data Cleaning**
+
+* Ensure data completeness by filtering rows specifically marked as 'complete'.
+* Remove any rows with missing values to maintain data integrity.
+
+**Step 2: Feature Processing**
+
+* Implement manual one-hot encoding for the 'position' feature to convert categorical data into numeric format, which is suitable for model input.
+* Standardize the numeric features to have a mean of zero and a standard deviation of one, optimizing model performance.
+
+**Step 3: Model Training**
+
+* **Train-Test Split**: Segment the data into training (80%) and testing (20%) sets to evaluate the model's performance on unseen data.
+* **Training the RandomForest Classifier**: Utilize the training set to fit the model. This step involves adjusting several hyperparameters to refine the model's prediction capabilities.
+
+**Step 4: Model Evaluation**
+
+* Utilize accuracy, precision, recall, and F1 score to assess the model. These metrics provide a comprehensive view of performance, highlighting the model's strengths and areas for improvement.
+
+**Performance Results:**
+* Accuracy: Computed as the ratio of correctly predicted instances to the total instances.
+* Precision: Measures the accuracy of positive predictions.
+* Recall: Captures the ability to find all relevant instances in the dataset.
+* F1 Score: Harmonic mean of precision and recall, providing a balance between the two.
+
+By addressing the limitations observed in the baseline model and integrating a more sophisticated algorithm with enhanced preprocessing steps, this final model is designed to achieve superior predictive accuracy and reliability, making it a valuable tool for strategic decision-making in competitive gaming.
 
