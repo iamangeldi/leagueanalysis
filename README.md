@@ -172,7 +172,7 @@ Precision: 0.55320813771518
 Recall: 0.5248700816629547
 F1 Score: 0.5386666666666666
 
-### Coclusion for baseline Model
+### Coclusion for Baseline Model
 The current model for predicting League of Legends game outcomes has an accuracy of 53.65%, meaning it is only slightly better than guessing. This suggests there is room for improvement. To make the model better, we can create new features, adjust the model settings, and try advanced methods. Additionally, balancing the dataset and increasing its size can help. These steps should improve the model's accuracy and reliability.
 
 The baseline model for predicting the outcome of a League of Legends (LoL) game based on early-game performance metrics has demonstrated foundational success, yet there is ample room for enhancement. The use of a Decision Tree Classifier has yielded modest predictive accuracy and other performance metrics, highlighting the necessity for a more robust approach in our final model.
@@ -212,5 +212,56 @@ A Random Forest Classifier is an ensemble learning method for classification tha
 * Recall: Captures the ability to find all relevant instances in the dataset.
 * F1 Score: Harmonic mean of precision and recall, providing a balance between the two.
 
-By addressing the limitations observed in the baseline model and integrating a more sophisticated algorithm with enhanced preprocessing steps, this final model is designed to achieve superior predictive accuracy and reliability, making it a valuable tool for strategic decision-making in competitive gaming.
+**Evaluation Results**
+Accuracy: 0.6383467278989667
+Precision: 0.659270998415214
+Recall: 0.6176688938381588
+F1 Score: 0.6377922575699502
+
+# Fairness Analysis
+In machine learning, it's crucial to ensure that models perform equitably across different groups to avoid biased outcomes. In this analysis, we examine whether our model's precision differs significantly between two player positions: "bot" and "mid". By focusing on these groups, we aim to identify if the model favors one position over the other in predicting game victories. To evaluate fairness, we conduct a permutation test to compare the model's precision for "bot" and "mid" players. This approach helps us understand if any observed differences in precision are due to the model's inherent bias or just random chance.
+
+#### Group Definitions:
+
+- **Group X**: "Bot" players (players in the "bot" position).
+- **Group Y**: "Mid" players (players in the "mid" position).
+
+#### Evaluation Metric:
+
+- **Precision**: The ratio of true positive predictions to the total number of positive predictions (true positives and false positives). Precision evaluates how accurate the positive predictions are.
+
+#### Hypotheses:
+
+- **Null Hypothesis (\(H_0\))**: The model's precision is the same for "bot" and "mid" players. Any observed differences in precision are due to random chance.
+- **Alternative Hypothesis (\(H_1\))**: The model's precision for "bot" players is significantly different from that for "mid" players.
+
+#### Test Statistic:
+
+- **Difference in Precision**: The precision difference between "bot" and "mid" players, calculated as \( \text{Precision}_{\text{bot}} - \text{Precision}_{\text{mid}} \).
+
+#### Significance Level:
+
+- **\(\alpha = 0.05\)**: We use a significance level of 0.05 to assess the statistical significance of the observed difference in precision.
+
+### Results:
+
+- **Precision for "Bot" Players**: \(0.689\)
+- **Precision for "Mid" Players**: \(0.632\)
+- **Observed Difference in Precision**: \(0.0575\)
+- **P-value**: \(0.0404\)
+
+### Visualization:
+![Fairness Visualization](assets/fairness_visualization.png)
+
+### Conclusion:
+
+The fairness analysis reveals a significant difference in precision between "bot" and "mid" players, with the p-value (\(0.0404\)) being less than the significance level (\(0.05\)). This result leads us to reject the null hypothesis, indicating that the precision of the model is not the same for both groups. Specifically, the model demonstrates higher precision for "bot" players compared to "mid" players, suggesting a performance bias in favor of "bot" players.
+
+### Implications:
+
+1. **Model Bias**: The significant precision difference suggests that the model is more accurate in predicting victories for "bot" players than for "mid" players. This could lead to unfair treatment or inaccurate assessments depending on the player's position.
+2. **Model Adjustments**: To address this bias, consider revisiting the model's training process, feature selection, and potentially rebalancing the dataset to ensure more equitable treatment across positions.
+3. **Broader Performance Metrics**: Evaluate additional performance metrics, such as recall or balanced accuracy, to gain a comprehensive understanding of the model's fairness and overall performance.
+4. **Investigate Causes**: Further analysis is needed to understand why the model performs differently for these groups. This could involve exploring feature importance, model decision boundaries, or looking into whether the data itself introduces some biases.
+
 
